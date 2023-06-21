@@ -35,53 +35,6 @@ for (const i in nameYear) {
   Title.innerHTML += `<span class='titleOfYear'>${nameYear[i]}</span>`;
 }
 
-function createBubbles() {
-  const areaTitle = document.querySelector(".area-title");
-
-  // let num = (Math.floor(Math.random() * 3) + 1) * 10;
-  let num = 40;
-
-  for (let i = 0; i < num; i++) {
-    let bubble = document.createElement("div");
-
-    let nX;
-    let nY = 0;
-
-    nX = i + 20.5 * i + 1;
-    nY =
-      -(Math.floor(Math.random() * 200) + 10 - i) -
-      i * (Math.floor(Math.random() * 3) + 1);
-    c = Math.floor(Math.random() * 5) + 1;
-
-    bubble.setAttribute("class", "bubbles");
-    bubble.style.translate = `${nX}px ${nY}px`;
-
-    switch (c) {
-      case 1:
-        bubble.style.backgroundColor = "navy";
-        break;
-      case 2:
-        bubble.style.backgroundColor = "#197c7c";
-        break;
-      case 3:
-        bubble.style.backgroundColor = "palevioletred";
-        break;
-      case 4:
-        bubble.style.backgroundColor = "darksalmon";
-        break;
-      case 5:
-        bubble.style.backgroundColor = "#ffff4e";
-        break;
-      default:
-        bubble.style.backgroundColor = "#41ffc6";
-        break;
-    }
-
-    console.log(bubble);
-    areaTitle.appendChild(bubble);
-  }
-}
-
 function saveMonths() {
   for (let i = 0; i < numberOfMonths; i++) {
     let month = months[i];
@@ -135,14 +88,48 @@ function writeMonths() {
 
 function colorCalender(m) {
   let headCalender = document.querySelectorAll(`.headCalender`);
+  let color;
 
-  if(m == 0 || m % 2 == 0) {
-    headCalender[m].style.backgroundColor = "#6eabf0";
-  } else if(m % 3 == 0) {
-    headCalender[m].style.backgroundColor = "#7df06e";
-  } else {
-    headCalender[m].style.backgroundColor = "#f06e6e";
+  switch (m) {
+    case 0:
+      color = "#f06e6e";
+      break;
+    case 1:
+      color = "#f0e76e";
+      break;
+    case 2:
+      color = "#6ef095";
+      break;
+    case 3:
+      color = "#f09e6e";
+      break;
+    case 4:
+      color = "#6ea6f0";
+      break;
+    case 5:
+      color = "#da6ef0";
+      break;
+    case 6:
+      color = "#f06ebe";
+      break;
+    case 7:
+      color = "#3393a0";
+      break;
+    case 8:
+      color = "#e9ac29";
+      break;
+    case 9:
+      color = "#f06e6e";
+      break;
+    case 10:
+      color = "#9c69df";
+      break;
+    default:
+      color = "#ec43ac";
+      break;
   }
+
+  headCalender[m].style.backgroundColor = color;
 }
 
 function writeDays(m) {
@@ -165,7 +152,6 @@ function writeDays(m) {
 }
 
 function initialize() {
-  // createBubbles();
   saveMonths();
   writeMonths();
 }
