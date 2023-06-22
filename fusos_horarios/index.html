@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fusos Horários</title>
+  </head>
+  <body>
+
+    <style>
+        
+        
+        .glitch-effect{
+            animation: glitch-1 2s infinite linear alternate-reverse;
+        }
+        .h-title::before{
+            padding: 0;
+            content: attr(data-text);
+            position: absolute;
+            width: 100%;
+            translate: 50px 4px;
+            visibility: visible;
+            color: blueviolet;
+        }
+        .h-title{
+            color: blue;
+        }
+        .h-title::after{
+            padding: 0;
+            content: attr(data-text);
+            position: absolute;
+            width: 100%;
+            translate: 50px 4px;
+            visibility: visible;
+            color: aqua;
+        }
+
+    </style>
+
+      <h1 class="h-title glitch-effect" data-text="text aleatorio">
+
+    <script>
+    //   setInterval(() => {
+        let date = new Date();
+        console.log(date.getTimezoneOffset());
+        // console.log(date.setUTCDate(10));
+        let fusoGTMH = date.getUTCHours();
+        let fusoGTMM = date.getUTCMinutes();
+        let fusoGTMS = date.getUTCSeconds();
+
+        console.log(date, fusoGTMH, fusoGTMM, fusoGTMS);
+    //   }, 1000);
+    </script>
+  </body>
+</html>

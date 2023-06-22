@@ -104,7 +104,7 @@ function colorCalender(m) {
       color = "#f09e6e";
       break;
     case 4:
-      color = "#6ea6f0";
+      color = "#6ed6f0";
       break;
     case 5:
       color = "#da6ef0";
